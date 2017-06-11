@@ -7,3 +7,4 @@ function(err, data) {
     alert('Your query count: ' + data.query.count);
   }
 });
+?>
