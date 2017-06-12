@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 			
 			$text1 = $text1 / 1000000000000000000 ;
 			
-			$text = "ยอดเงินล่าสุดของคุณมี" : $text1
+			$text = "ยอดเงินล่าสุดของคุณมี" : $text1;
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
