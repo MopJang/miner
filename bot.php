@@ -12,10 +12,10 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			
-			$json = file_get_contents("http://claymores.ddns.net:3333/");
+			$json = file_get_contents("https://etc.ethermine.org/api/miner_new/796c1e1e32169b906139d4fb18ba5ab1bec796c9");
 			$jsonde = json_decode($json, true);
 			
-			$text = $jsonde['result'];
+			$text = $jsonde['address'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
