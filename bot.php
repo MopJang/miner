@@ -1,5 +1,5 @@
 <?php
-$access_token = 'C7IiFfFdabUmN+u+0jjzCfpgHpuEnqn5VYGKP4nuZVF4NYhKSzvcr3vJFjWOYny2QSx5wwlrvL+ayiaAPrh7Fw7WXHr53DGQEK6ed84xM+KgK4//YizknTrTv4tu0owQ0k8LMdnHPCn3rWcwXnu/aAdB04t89/1O/w1cDnyilFU=';
+$access_token = 'XXXXXXXXXXXXXXXXXXXXXXX';
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -11,8 +11,11 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
-			$text = $event['message']['text'];
+			
+			$json = file_get_contents("http://claymores.ddns.net:3333/");
+			$jsonde = json_decode($json, true);
+			
+			$text = $jsonde['result'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
