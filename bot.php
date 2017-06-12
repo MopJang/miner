@@ -19,9 +19,7 @@ if (!is_null($events['events'])) {
 			$address = $jsonde['address'];
 			$unpaid = $unpaid / 1000000000000000000 ;
 			
-			$text1 = "ยอดเงินล่าสุดของคุณมี : $unpaid";
-			$text2 = "หมายเลขกระเป๋า : $address";
-			$text = $text1 $text2;
+			$text = "หมายเลขกระเป๋า : $address ยอดเงินล่าสุดของคุณมี : number_format($unpaid, 5, '.', '')";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
