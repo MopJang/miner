@@ -1,6 +1,5 @@
 <?php
 $access_token = 'C7IiFfFdabUmN+u+0jjzCfpgHpuEnqn5VYGKP4nuZVF4NYhKSzvcr3vJFjWOYny2QSx5wwlrvL+ayiaAPrh7Fw7WXHr53DGQEK6ed84xM+KgK4//YizknTrTv4tu0owQ0k8LMdnHPCn3rWcwXnu/aAdB04t89/1O/w1cDnyilFU=';
-
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -24,13 +23,11 @@ if (!is_null($events['events'])) {
 			$text = "ความเร็ว :\n$rphr \n\nยอดเงินล่าสุดของคุณมี : $unpaid1";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
 				'text' => $text
 			];
-
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
@@ -39,7 +36,6 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -48,9 +44,41 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-
 			echo $result . "\r\n";
 		}
+		if ($event['type'] == 'message' && $event['message']['text'] == 'ตัง') {
+			
+			$json = file_get_contents("http://claymores.ddns.net",3333);
+			$jsonde = json_decode($json, true);
+			
+			$result = $jsonde['result'];
+			
+			
+			$text = "$result";
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+			// Build message to reply back
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+			];
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
+			echo $result . "\r\n";
 	}
 }
 echo "OK";
