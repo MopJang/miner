@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 			$unpaid = $unpaid / 1000000000000000000 ;
 			$unpaid1 = number_format($unpaid, 5, '.', '');
 			
-			$text = "หมายเลขกระเป๋า : $address ยอดเงินล่าสุดของคุณมี : $unpaid1)";
+			$text = "หมายเลขกระเป๋า :\n$address \nยอดเงินล่าสุดของคุณมี : $unpaid1)";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
