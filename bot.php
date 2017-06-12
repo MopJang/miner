@@ -48,13 +48,23 @@ if (!is_null($events['events'])) {
 		}
 		if ($event['type'] == 'message' && $event['message']['text'] == 'คอม') {
 			
-			$json = file_get_contents("http://claymores.ddns.net",3333);
-			$jsonde = json_decode($json, true);
 			
-			$result = $jsonde['result'];
+$status =  GetServerStatus('http://claymores.ddns.net',3333)
+
+<?php
+function GetServerStatus($site, $port)
+{
+$status = array("OFFLINE", "ONLINE");
+$fp = @fsockopen($site, $port, $errno, $errstr, 2);
+if (!$fp) {
+    $server $status&#91;0&#93;;
+} else 
+  { $server $status&#91;1&#93;;}
+}
+
 			
 			
-			$text = "$result";
+			$text = "$server";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
