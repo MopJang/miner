@@ -51,7 +51,6 @@ if (!is_null($events['events'])) {
 			
 $status =  GetServerStatus('http://claymores.ddns.net',3333)
 
-<?php
 function GetServerStatus($site, $port)
 {
 $status = array("OFFLINE", "ONLINE");
