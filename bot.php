@@ -46,7 +46,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 			echo $result . "\r\n";
 		}
-		if ($event['type'] == 'message' && $event['message']['text'] == 'ตัง') {
+		if ($event['type'] == 'message' && $event['message']['text'] == 'คอม') {
 			
 			$json = file_get_contents("http://claymores.ddns.net",3333);
 			$jsonde = json_decode($json, true);
