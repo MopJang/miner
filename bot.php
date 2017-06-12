@@ -16,11 +16,11 @@ if (!is_null($events['events'])) {
 			$jsonde = json_decode($json, true);
 			
 			$unpaid = $jsonde['unpaid'];
-			$address = $jsonde['address'];
+			$rphr = $jsonde['reportedHashRate'];
 			$unpaid = $unpaid / 1000000000000000000 ;
 			$unpaid1 = number_format($unpaid, 5, '.', '');
 			
-			$text = "หมายเลขกระเป๋า :\n$address \nยอดเงินล่าสุดของคุณมี : $unpaid1)";
+			$text = "ความเร็ว :\n$rphr \n\nยอดเงินล่าสุดของคุณมี : $unpaid1)";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
