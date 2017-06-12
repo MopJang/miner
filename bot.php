@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
 			$unpaid = $unpaid / 1000000000000000000 ;
 			$unpaid1 = number_format($unpaid, 5, '.', '');
 			
-			$text = "ความเร็ว :\n$rphr \n\nยอดเงินล่าสุดของคุณมี : $unpaid1 \n$result";
+			$text = "ความเร็ว :\n$rphr \n\nยอดเงินล่าสุดของคุณมี : $unpaid1";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
