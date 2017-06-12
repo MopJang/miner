@@ -15,9 +15,11 @@ if (!is_null($events['events'])) {
 			$json = file_get_contents("https://etc.ethermine.org/api/miner_new/796c1e1e32169b906139d4fb18ba5ab1bec796c9");
 			$jsonde = json_decode($json, true);
 			
-			$text = $jsonde['unpaid'];
+			$text1 = $jsonde['unpaid'];
 			
-			$text = $text / 1000000000000000000 ;
+			$text1 = $text1 / 1000000000000000000 ;
+			
+			$text = "ยอดเงินล่าสุดของคุณมี" : $text1
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
