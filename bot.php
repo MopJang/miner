@@ -49,16 +49,12 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['text'] == 'คอม') {
 			
 			
-$status =  GetServerStatus('http://claymores.ddns.net',3333)
-
-function GetServerStatus($site, $port)
-{
-$status = array("OFFLINE", "ONLINE");
-$fp = @fsockopen($site, $port, $errno, $errstr, 2);
-if (!$fp) {
-    $server $status&#91;0&#93;;
-} else 
-  { $server $status&#91;1&#93;;}
+$host = 'google.com';
+if($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
+$sever = "ONLINE";
+fclose($socket);
+} else {
+$server = "OFFLINE";
 }
 
 			
