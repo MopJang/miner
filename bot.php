@@ -15,10 +15,10 @@ if (!is_null($events['events'])) {
 			$json = file_get_contents("https://etc.ethermine.org/api/miner_new/796c1e1e32169b906139d4fb18ba5ab1bec796c9");
 			$jsonde = json_decode($json, true);
 			
-			$claymore = file_get_contents('http://claymores.ddns.net' ,3333)
+			$claymore = file_get_contents('http://claymores.ddns.net' ,3333);
 			$claymorede = json_decode($claymore, true);
 			
-			$result = $claymorede['result']
+			$result = $claymorede['result'];
 			$unpaid = $jsonde['unpaid'];
 			$rphr = $jsonde['reportedHashRate'];
 			$unpaid = $unpaid / 1000000000000000000 ;
