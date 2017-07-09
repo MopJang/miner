@@ -11,7 +11,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['text'] == 'ตัง') {
 			
-			$json = file_get_contents("https://etc.ethermine.org/api/miner_new/796c1e1e32169b906139d4fb18ba5ab1bec796c9");
+			$json = file_get_contents("https://etc.ethermine.org/api/miner_new/4156e42da8784f5551c314d453c341a99766cb19");
 			$jsonde = json_decode($json, true);
 			
 			$result = $claymorede['result'];
